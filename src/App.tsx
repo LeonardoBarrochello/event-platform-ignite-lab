@@ -1,5 +1,9 @@
+import { ApolloProvider } from '@apollo/client'
 import { useState } from 'react'
+import { BrowserRouter } from 'react-router-dom'
+import { client } from './lib/apollo'
 import { Event } from './pages/Event'
+import { Router } from './router'
 import "./styles/global.css"
 
 
@@ -7,7 +11,12 @@ function App() {
 
   return (
     <div className="App">
-      <Event />
+      <ApolloProvider client={client}>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
+      </ApolloProvider>
+
     </div>
   )
 }
