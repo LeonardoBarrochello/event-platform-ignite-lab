@@ -1,6 +1,7 @@
 import { ApolloProvider } from '@apollo/client'
 import { useState } from 'react'
 import { BrowserRouter } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
 import { client } from './lib/apollo'
 import { Event } from './pages/Event'
 import { Router } from './router'

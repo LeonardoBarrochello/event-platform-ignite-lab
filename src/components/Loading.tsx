@@ -3,11 +3,13 @@ import ReactLoading, { LoadingType } from "react-loading";
 
 interface LoadingProps {
     type: LoadingType;
-    color: string
+    color: string;
+    width?: string;
+    height?: string;
 }
 
 export function Loading(props: LoadingProps) {
     return (
-        <ReactLoading type={props.type} color={props.color} width={"10%"} height={"10%"} />
+        <ReactLoading type={props.type} color={props.color} width={props.width ? props.width : "10%"} height={props.height ? props.height : "10%"} />
     )
 }
