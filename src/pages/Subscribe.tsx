@@ -4,21 +4,13 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Loading } from "../components/Loading";
 import Logo from "../components/Logo";
+import { useCreateSubscriberMutation } from "../graphql/generated";
 
 
 interface FormProps {
     name: string;
     email: string;
 }
-
-const CREATE_SUBSCRIBER_MUTATION = gql`
-    mutation CreateSubscriber ($name :String! , $email : String!) {
-        createSubscriber(data: {name: $name, email:$email}) {
-            id
-        }
-    }
-  
-`
 
 export function Subscribe() {
 
@@ -29,7 +21,7 @@ export function Subscribe() {
 
     const navigate = useNavigate();
 
-    const [createSubscriber, { loading }] = useMutation(CREATE_SUBSCRIBER_MUTATION);
+    const [createSubscriber, { loading }] = useCreateSubscriberMutation();
 
     function handleSubscribe(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();

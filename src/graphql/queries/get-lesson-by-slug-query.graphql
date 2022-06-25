@@ -1,0 +1,13 @@
+query GetLessonsBySlug ($slug :String) {
+    lesson(where: {slug:$slug}, stage: PUBLISHED) {
+      lessonType
+      description
+      title
+      videoId
+      teacher {
+        avatarURL
+        bio
+        name
+      }
+    }
+  }
